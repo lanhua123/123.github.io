@@ -2,8 +2,8 @@
 layout: post
 title:  "微距拍摄心得及一些实用技巧分享"
 date:   2015-12-31 23:06:05
-categories: JavaScript
-tags: JavaScript Ajax URL HistoryApi pushState pjax
+categories: 摄影心得与技巧
+tags: 心得 技巧
 ---
 
 * content
