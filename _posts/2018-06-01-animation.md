@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "关于摄影的文章"
-categories: 文章
-tags: 摄像 
-author: 地方
+categories: JavaScript
+tags:  countdown JavaScript
+author: HyG
 ---
 
 * content
