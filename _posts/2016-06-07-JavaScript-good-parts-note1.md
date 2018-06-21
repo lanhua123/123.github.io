@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "10个手机摄影技巧，教你用手机拍出大片"
-categories: JavaScript
-tags:  对象 函数 this 闭包 面向对象 作用域
+categories: 摄影技巧
+tags:  手机 技巧
 ---
 
 * content
