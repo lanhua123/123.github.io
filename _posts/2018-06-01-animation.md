@@ -1,10 +1,13 @@
 ---
 layout: post
 title:  "关于摄影的文章"
-categories:摄影
-tags:  摄影
+categories: 摄影
+tags: 摄影
 author: HyG
 ---
+
+* content
+{:toc}
 
 * content
 {:toc}
