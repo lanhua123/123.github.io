@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "索尼全画幅微单A7RM3 专业摄影两全其美"
-categories: JavaScript
-tags:  函数 JavaScript
+categories: 摄影
+tags: 索尼
 ---
 
 * content
