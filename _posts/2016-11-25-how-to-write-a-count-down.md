@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "前端如何写一个精确的倒计时"
+title:  "关于摄影的文章"
 categories: JavaScript
 tags:  countdown JavaScript
 author: HyG
@@ -9,94 +9,19 @@ author: HyG
 * content
 {:toc}
 
-关于写倒计时大家可能都都比较熟悉，使用 setTimeout 或 setInterval 就可以搞定。几秒钟或者几分钟的倒计时这样写没有问题，但是如果是长时间的倒计时，这样写就会不准确。如果用户修改了他的设备时间，这样的倒计时就没有意义了。今天就说说写一个精确的倒计时的方法。
 
-![](https://img.alicdn.com/tfs/TB18QnlOpXXXXcVXpXXXXXXXXXX-388-256.png)
-
-
+摄影是学习如何观察事物的一种方式，它是强烈的个人视觉感受。下面是学习啦小编给大家带来的关于摄影的散文，供大家欣赏。
+![image](https://github.com/lanhua123/lanhua123.github.io/raw/master/1.jpg)
 
 
-## 原理
+　　关于摄影的散文：论摄影
+　　
+现在社会上人手一台照相机不稀罕，但在你按下快门的那一瞬间，你有没有想过摄影的意义到底是什么？有人说摄影是文明的手印，我非常同意这个比喻。因为它一出现就被深深地烙上了“平民化”的烙印。虽然摄影在很长的一段时间内是有钱人的“玩具”，有着贵族的血统，但它骨子里豪放不羁的的个性就决定了它终会“离家出走”，去抗争去搏击，在风云变幻的广阔天地里找到它的地位和作用，它迎合了当代文明进步的主流方向，有着强大的生命力。可是有时，你看到一些照片时，就好象感到被一颗无情的子弹狠狠地打击中你心口，那看不见的鲜血无情地流淌着，使你忍不住地捂住胸口呻吟着。此时，你并没有感到一丝的愉悦，而是感到有着一份沉重深深地压向你。摄影，此时面临着两条路的选择。一是艺术性，一是纪实性。而摄影师也面临一种迷惘，一种思考，一种痛苦。是把摄影当成个人的一种情愫的宣泄呢，如文学家的一支爬格子的笔？还是一种纯粹艺术创作，如画家手中多彩的画笔？要么，把它当成一个武器？一把手术刀？也许它有着多样性。就如文学中有着优美柔软的一面外，也有着饱含着力量和血泪的一面。但摄影最主要的意义是什么呢？它的魅力最迷人之处在那里体现呢？摄影是真实映象瞬间的定格，它的这个特性就注定和其它的艺术有着本质的不同。摄影是一瞬决定了永久。一个摄影师他终会苍老，会死去，但他拍的有意义的照片可能永远不会消失，是永久地生存。而照片后的故事可能会深深地打动着几代几代的人。摄影的魅力在于它的真实，在于它瞬间。照片背后的故事，瞬间以后的思考。这是摄影师的伟大，也是摄影师的责任。去寻找照片中所含的普遍性的意义，而真正的普通性的意义就是能打动人心的那一份真诚、那一份善良；那一份心痛的侧隐、那一份共鸣的唏嘘；那一份悲怆的激愤、那一份无言的感动。如果你能用相机去寻找那个普遍性的意义，那你就是一个摄影师。无论你是用着是什么型号的相机，无论你是拍得有没有艺术性和观赏性。 只要你的心去寻找了，你就是一个摄影师。这就是摄影的意义！
+  
+  
+  
+  
+  
+  
+     
 
-众所周知 setTimeout 或者 setInterval 调用的时候会有微小的误差。有人做了一个 [demo](https://bl.ocks.org/kenpenn/raw/92ebaa71696b4c4c3acd672b1bb3f49a/) 来观察这个现象并对其做了修正。短时间的误差倒也可以接受，但是作为一个长时间的倒计时，误差累计就会导致倒计时不准确。
-
-因此我们可以在获取剩余时间的时候，每次 new 一个设备时间，因为设备时间的流逝相对是准确的，并且如果设备打开了网络时间同步，也会解决这个问题。
-
-但是，如果用户修改了设备时间，那么整个倒计时就没有意义了，用户只要将设备时间修改为倒计时的 endTime 就可以轻易看到倒计时结束是页面的变化。因此一开始获取服务端时间就是很重要的。
-
-简单的说，一个简单的精确倒计时原理如下：
-
-- 初始化时请求一次服务器时间 serverTime，再 new 一个设备时间 deviceTime
-- deviceTime 与 serverTime 的差作为时间偏移修正
-- 每次递归时 new 一个系统时间，解决 setTimeout 不准确的问题
-
-## 代码
-
-获取剩余时间的代码如下：
-
-```js
-/**
- * 获取剩余时间
- * @param  {Number} endTime    截止时间
- * @param  {Number} deviceTime 设备时间
- * @param  {Number} serverTime 服务端时间
- * @return {Object}            剩余时间对象
- */
-let getRemainTime = (endTime, deviceTime, serverTime) => {
-    let t = endTime - Date.parse(new Date()) - serverTime + deviceTime
-    let seconds = Math.floor((t / 1000) % 60)
-    let minutes = Math.floor((t / 1000 / 60) % 60)
-    let hours = Math.floor((t / (1000 * 60 * 60)) % 24)
-    let days = Math.floor(t / (1000 * 60 * 60 * 24))
-    return {
-        'total': t,
-        'days': days,
-        'hours': hours,
-        'minutes': minutes,
-        'seconds': seconds
-    }
-}
-```
-
-<del>获取服务器时间可以使用 mtop 接口 `mtop.common.getTimestamp` </del>
-
-然后可以通过下面的方式来使用：
-
-```js
-// 获取服务端时间（获取服务端时间代码略）
-getServerTime((serverTime) => {
-
-    //设置定时器
-    let intervalTimer = setInterval(() => {
-
-        // 得到剩余时间
-        let remainTime = getRemainTime(endTime, deviceTime, serverTime)
-
-        // 倒计时到两个小时内
-        if (remainTime.total <= 7200000 && remainTime.total > 0) {
-            // do something
-
-        //倒计时结束
-        } else if (remainTime.total <= 0) {
-            clearInterval(intervalTimer);
-            // do something
-        }
-    }, 1000)
-})
-```
-
-这样的的写法也可以做到准确倒计时，同时也比较简洁。不需要隔段时间再去同步一次服务端时间。
-
-## 补充
-
-在写倒计时的时候遇到了一个坑这里记录一下。
-
-**千万别在倒计时结束的时候请求接口**。会让服务端瞬间 QPS 峰值达到非常高。
-
-![](https://img.alicdn.com/tfs/TB1LBzjOpXXXXcnXpXXXXXXXXXX-154-71.png)
-
-如果在倒计时结束的时候要使用新的数据渲染页面，正确的做法是：
-
-在倒计时结束前的一段时间里，先请求好数据，倒计时结束后，再渲染页面。
-
-关于倒计时，如果你有什么更好的解决方案，欢迎评论交流。
