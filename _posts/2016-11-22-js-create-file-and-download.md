@@ -1,87 +1,16 @@
 ---
 layout: post
-title:  "使用 JavaScript 创建并下载文件"
+title:  "关于摄影的文章"
 categories: JavaScript
 tags:  文件 下载 JavaScript
-author: HyG
+author: zhx
 ---
 
 * content
 {:toc}
 
-本文将介绍如何使用 JavaScript 创建文件，并自动/手动将文件下载。这在导出原始数据时会比较方便。
-
-## 先上代码
-
-```js
-/**
- * 创建并下载文件
- * @param  {String} fileName 文件名
- * @param  {String} content  文件内容
- */
-function createAndDownloadFile(fileName, content) {
-    var aTag = document.createElement('a');
-    var blob = new Blob([content]);
-    aTag.download = fileName;
-    aTag.href = URL.createObjectURL(blob);
-    aTag.click();
-    URL.revokeObjectURL(blob);
-}
-```
-
-很简单对吧，直接调用这个方法，传入文件名和文件内容，程序新建 a 标签，新建 Blob 对象，将文件名赋给 a 标签，同时将 Blob 对象作为 Url 也赋给 a 标签，模拟点击事件，自动下载成功，最后再回收内存。下面我们来看看具体是怎么操作的。
+摄影是学习如何观察事物的一种方式，它是强烈的个人视觉感受。下面是学习啦小编给大家带来的关于摄影的散文，供大家欣赏。 
+![image](https://github.com/lanhua123/lanhua123.github.io/raw/master/1.jpg)
 
 
-
-
-
-![](https://img.alicdn.com/tfs/TB16.GnOpXXXXXdapXXXXXXXXXX-307-134.png)
-
-## Blob 对象
-
-Blob 对象是一个字节序列。拥有 `size` 和 `type` 等属性。
-
-拥有 2 个只读状态 `OPEND` 和 `CLOSED。`
-
-Blob 对象属于 JavaScript Web APIs 中的 File API 规定的部分，可以参考 W3C 文档中的 [ The Blob Interface and Binary Data](https://www.w3.org/TR/2015/WD-FileAPI-20150421/#blob)
-
-再回来看看我们的代码里是这么写的，使用了 Blob 的构造函数：
-
-```js
-var blob = new Blob([content]);
-```
-
-使用方括号的原因是，其构造函数的参数为以下4中：
-
-- ArrayBuffer [TypedArrays] elements.
-- ArrayBufferView [TypedArrays] elements.
-- Blob elements.
-- DOMString [WebIDL] elements.
-
-所谓 `ArrayBuffer` 是一种用于呈现通用、固定长度的二进制数据的类型。详情可以参考 [ArrayBuffer -MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) 以及 [ECMAScript2015 标准中的 ArrayBuffer](http://www.ecma-international.org/ecma-262/6.0/#sec-arraybuffer-objects)。
-
-## Blob URLs
-
-Blob URLs 被创建或注销是使用 `URL` 对象上的方法。这个 `URL` 对象被挂在 `Window` (HTML) 对象下，或者 `WorkerGlobalScope` (Web Workers)对象下。
-
-拥有以下静态方法 `createObjectURL` 和 `revokeObjectURL`，用于创建一个 blob 对象的 url 和注销这个 blob url。
-
-详情可查看 [关于创建和注销 Blob URL 的 W3C 标准文档]( https://www.w3.org/TR/2015/WD-FileAPI-20150421/#creating-revoking)
-
-## 模拟 click
-
-```js
-element.click();
-```
-
-在 W3C 中很早就有这个[规范](https://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-2651361)，不需要写繁琐的模拟事件触发的代码。
-
-## 小结
-
-目前我将这个技术使用在 天猫双十一技术和UED庆功会 的摇火箭大屏游戏中。最后的游戏结果排名，在请求了接口后，在前端直接生成并下载到了本地，作为记录保存。主要也是因为服务端暂时没有提供这个一张表去记录游戏结果，于是采用了前端记录的解决方案。
-
-大家当时都玩的好开心啊，😁。你们的甘其食和全家卡的名单就是这样生成的！
-
-## 参考
-
-- [在浏览器端用JS创建和下载文件 -alloyteam](http://www.alloyteam.com/2014/01/use-js-file-download/)
+现在社会上人手一台照相机不稀罕，但在你按下快门的那一瞬间，你有没有想过摄影的意义到底是什么？有人说摄影是文明的手印，我非常同意这个比喻。因为它一出现就被深深地烙上了“平民化”的烙印。虽然摄影在很长的一段时间内是有钱人的“玩具”，有着贵族的血统，但它骨子里豪放不羁的的个性就决定了它终会“离家出走”，去抗争去搏击，在风云变幻的广阔天地里找到它的地位和作用，它迎合了当代文明进步的主流方向，有着强大的生命力。可是有时，你看到一些照片时，就好象感到被一颗无情的子弹狠狠地打击中你心口，那看不见的鲜血无情地流淌着，使你忍不住地捂住胸口呻吟着。此时，你并没有感到一丝的愉悦，而是感到有着一份沉重深深地压向你。摄影，此时面临着两条路的选择。一是艺术性，一是纪实性。而摄影师也面临一种迷惘，一种思考，一种痛苦。是把摄影当成个人的一种情愫的宣泄呢，如文学家的一支爬格子的笔？还是一种纯粹艺术创作，如画家手中多彩的画笔？要么，把它当成一个武器？一把手术刀？也许它有着多样性。就如文学中有着优美柔软的一面外，也有着饱含着力量和血泪的一面。但摄影最主要的意义是什么呢？它的魅力最迷人之处在那里体现呢？摄影是真实映象瞬间的定格，它的这个特性就注定和其它的艺术有着本质的不同。摄影是一瞬决定了永久。一个摄影师他终会苍老，会死去，但他拍的有意义的照片可能永远不会消失，是永久地生存。而照片后的故事可能会深深地打动着几代几代的人。摄影的魅力在于它的真实，在于它瞬间。照片背后的故事，瞬间以后的思考。这是摄影师的伟大，也是摄影师的责任。去寻找照片中所含的普遍性的意义，而真正的普通性的意义就是能打动人心的那一份真诚、那一份善良；那一份心痛的侧隐、那一份共鸣的唏嘘；那一份悲怆的激愤、那一份无言的感动。如果你能用相机去寻找那个普遍性的意义，那你就是一个摄影师。无论你是用着是什么型号的相机，无论你是拍得有没有艺术性和观赏性。 只要你的心去寻找了，你就是一个摄影师。这就是摄影的意义！
