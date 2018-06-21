@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "玩微距摄影，这四个相机设置一定要设置对"
-categories: JavaScript
-tags:  countdown JavaScript
+categories: 摄影
+tags: 微距摄影
 author: HyG
 ---
 
