@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Git 如何 clone 非 master 分支的代码"
+title:  "123幅优秀摄影作品入选"
 categories: GitHub
 tags:  Git GitHub 分支
 ---
@@ -8,97 +8,10 @@ tags:  Git GitHub 分支
 * content
 {:toc}
 
-## 问题描述
+宝安日报讯（记者 陈玲玲）新时代，新光明，新影像。6月15日上午，2018第二届深圳国际摄影大展光明新区平行展在新区文化馆一楼展厅开幕，展出123幅作品。展览结束后，广大参展者参加摄影讲座。
 
-我们每次使用命令
+## 本次光明新区平行展作为“2018第二届深圳国际摄影大展”的分会场展览，由深圳市摄影家协会、光明新区文体教育局主办，光明新区公共文化艺术发展中心和光明新区摄影家协会联合承办。据悉，活动自征集3个月以来，收到1000幅来自各行业摄影爱好者投稿，其中光明作者投稿800幅，其他区作者投稿200幅，这1000幅作品中光明题材占了620幅。连日来，经过专家公平公正评选，共计123幅优秀作品入选此次展览。
 
-```
-git clone git@gitlab.xxx.com:xxxxx.git
-```
+记者在现场看到，此次展览分为绿色光明、记忆光明、筑梦光明和文化光明四个主题，分别从不同角度描绘了光明丰富的自然、人文、民俗、建筑、历史风貌，体现了十年来光明经济社会发展取得的成就，充分体现了摄影家们对生活的热爱，具有较高的艺术欣赏价值。
 
-默认 clone 的是这个仓库的 master 分支。如果最新的代码不在 master 分支上，该如何拿到呢？如下图所示，最新的代码可能在`daily/1.4.1`分支上，我们希望拿到这个分支上的代码。
-
-
-
-
-![7f07c8f6deef169ef6be5103bbd3e932f8676bb1.png](https://ooo.0o0.ooo/2016/07/07/577e349ab42ed.png)
-
-## 解决方法
-
-**刚刚开周会的时候，自己洋洋得意的分享我的解决方案，但是……经过与团队成员的的讨论，自己的方法弱爆了，现在把更优雅的方法写一下。原来写的方法并不太适合用在这个场景里。** 我之前写的方法在文章后面。
-
-直接使用命令
-
-```
-git branch -r #查看远程分支
-```
-或
-
-```
-git branch -a #查看所有分支
-```
-
-会显示
-
-```
-origin/HEAD -> origin/master
-origin/daily/1.2.2
-origin/daily/1.3.0
-origin/daily/1.4.1
-origin/develop
-origin/feature/daily-1.0.0
-origin/master
-```
-
-然后直接
-
-```
-git checkout origin/daily/1.4.1
-```
-
-就好了。。。
-
-## 原来的解决方案
-
-**其实我原来写的这个方法更多的是：设置已有的本地分支跟踪一个刚刚拉取下来的远程分支，或者想要修改正在跟踪的上游分支。**
-
-我们在本地先建立一个分支，建议名称和远程的想要同步的分支名称一样。
-
-```
-git branch daily/1.4.1
-```
-
-在切换到这个本地分支
-
-```
-git checkout daily/1.4.1
-# Switched to branch 'daily/1.4.1'
-```
-
-接下来就可以去建立上游分支的关联了，但是这个命令比较长，不好记，我们可以直接先`pull`一下，git 会提示我们相应的操作和命令。
-
-```
-git pull
-There is no tracking information for the current branch.
-Please specify which branch you want to merge with.
-See git-pull(1) for details.
-
-    git pull <remote> <branch>
-
-If you wish to set tracking information for this branch you can do so with:
-
-    git branch --set-upstream-to=origin/<branch> daily/1.4.1
-```
-
-我们看到最后一行，执行这个命令，即可完成与上游分支的关联。
-
-```
-git branch --set-upstream-to=origin/daily/1.4.1 daily/1.4.1
-# Branch daily/1.4.1 set up to track remote branch daily/1.4.1 from origin.
-```
-
-然后再`pull`一下就好了！
-
-```
-git pull
-```
+此次展览截至6月30日，感兴趣的市民可自行前往参观。
