@@ -16,7 +16,7 @@ author: HyG
 
 所以在选择拍摄模式时一定要选择“光圈优先”或者“全手动”拍摄模式，这两个拍摄模式都可以手动调节光圈大小。
 
-![image](https://github.com/double-digit/double-digit.github.io/raw/master/lanhua.123.jpg)
+![image](https://github.com/lanhua123/lanhua123.github.io/raw/master/2.jpg)
 
 两个拍摄模式的区别在于：光圈优先模式，你只用调整光圈大小，然后系统会自动给出快门速度。而手动模式则需要调整光圈大小、快门速度，然后得到合理曝光。
 
