@@ -10,7 +10,7 @@ author: 地方
 {:toc}
 
 摄影是学习如何观察事物的一种方式，它是强烈的个人视觉感受。下面是学习啦小编给大家带来的关于摄影的散文，供大家欣赏。
-
+![image](https://github.com/lanhua123/lanhua123.github.io/raw/master/1.jpg)
 
 
 　　关于摄影的散文：论摄影
