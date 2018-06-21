@@ -2,8 +2,8 @@
 layout: post
 title:  "荷花拍摄技巧，教你如何拍出漂亮荷花照"
 date:   2016-05-06 11:40:18 +0800
-categories: JavaScript
-tags: 正则 分组 Regular
+categories: 拍摄技巧
+tags: 技巧 荷花
 ---
 
 * content
