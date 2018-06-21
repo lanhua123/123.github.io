@@ -2,8 +2,8 @@
 layout: post
 title:  "进阶摄影必备 与闪光灯有关的基础知识"
 date:   2015-07-24 00:06:05
-categories: CSS
-tags: IE CSS 兼容性 HTML
+categories: 摄影技巧
+tags: 技巧 方法
 ---
 
 * content
