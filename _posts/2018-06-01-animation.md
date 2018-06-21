@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "关于摄影的文章"
-categories: JavaScript
-tags:  countdown JavaScript
+categories:摄影
+tags:  摄影
 author: HyG
 ---
 
