@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "草原摄影家”额博向内蒙古画报社捐赠摄影作品3万件"
-categories: JavaScript
-tags:  ES2015 ES6 ES5 babel 
+categories: 摄影
+tags:  摄影家 捐赠
 ---
 
 * content
