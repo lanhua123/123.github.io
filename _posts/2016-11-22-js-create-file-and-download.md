@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "摄影，是与城市对话的方式"
-categories: JavaScript
-tags:  文件 下载 JavaScript
+categories: 摄影
+tags:  城市 对话
 author: zhx
 ---
 
