@@ -2,8 +2,8 @@
 layout: post
 title:  "摄影，必须从绘画中学习的专业知识"
 date:   2015-07-09 00:06:05
-categories: JavaScript
-tags: JavaScript HTML CSS 思维导图 技能树
+categories: 摄影知识
+tags: 知识
 ---
 
 摄影和绘画都属于视觉艺术，
