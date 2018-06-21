@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "掌握摄影技巧 拍出美好生活"
-categories: JavaScript
-tags:  继承 对象 原型 Array 正则
+categories:摄影技巧
+tags:  技巧
 ---
 
 * content
