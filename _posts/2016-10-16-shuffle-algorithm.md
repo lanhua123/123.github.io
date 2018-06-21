@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "美摄影师用3.8万张照片制作延时视频展现野性非洲"
-categories: JavaScript
-tags:  算法 shuffle 乱序 洗牌
+categories:摄影
+tags:  摄影师 非洲
 author: HyG
 ---
 
